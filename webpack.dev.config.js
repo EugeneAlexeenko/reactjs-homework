@@ -17,7 +17,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: [
       {
-        test: /\.(s*)css$/,
+        test: /\.s?css$/,
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
           { loader: 'css-loader', options: { sourceMap: true } },

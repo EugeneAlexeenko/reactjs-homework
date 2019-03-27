@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarWebpackPlugin = require('progress-bar-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -31,6 +32,10 @@ module.exports = {
       },
   ]},
   plugins: [
+    // Define global constants which can be configured at compile time
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
     new HtmlWebpackPlugin({
       title: 'React Homework Application',
       template: './src/index.html',
