@@ -1,0 +1,24 @@
+.button {
+  font-size: 12px;
+  background-color: #3c3c3c;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+
+  &--active {
+    background-color: #f55363;
+  }
+}
+
+.search-button {
+  margin-left: auto;
+  width: 150px;
+  height: 30px;
+  font-size: 14px;
+  background-color: #f55363;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+}
