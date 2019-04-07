@@ -4,6 +4,7 @@ import Search from './Search/Search';
 import PreviewSettings from './PreviewSettings/PreviewSettings';
 import PreviewList from './PreviewList/PreviewList';
 import './App.scss';
+import ErrorBoundary from "./ErrorBoundary";
 
 const App = () => {
   const [sortBy, setSortBy] = useState('release date');
@@ -42,32 +43,36 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <header className="app__header">
-        <h1 className="app__header-title">netflixroulette</h1>
 
-        <div className="app_search-container">
-          <Search handleSubmit={handleSearch} />
-        </div>
-      </header>
+      <div className="app">
+        <header className="app__header">
+          <h1 className="app__header-title">netflixroulette</h1>
 
-      <main className="app__main">
+          <div className="app_search-container">
+            <Search handleSubmit={handleSearch} />
+          </div>
+        </header>
 
-        <PreviewSettings
-          moviesCount={movies.length}
-          sortBy={sortBy}
-          handleSortByReleaseDate={handleSortByReleaseDate}
-          handleSortByRating={handleSortByRating}
-        />
+        <main className="app__main">
 
-        <PreviewList movies={movies} />
+          <PreviewSettings
+            moviesCount={movies.length}
+            sortBy={sortBy}
+            handleSortByReleaseDate={handleSortByReleaseDate}
+            handleSortByRating={handleSortByRating}
+          />
 
-      </main>
+          <ErrorBoundary>
+            <PreviewList movies={movies} />
+          </ErrorBoundary>
 
-      <footer className="app__footer">
-        <div>netflixroulette</div>
-      </footer>
-    </div>
+        </main>
+
+        <footer className="app__footer">
+          <div>netflixroulette</div>
+        </footer>
+      </div>
+
   );
 };
 
