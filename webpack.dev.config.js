@@ -10,7 +10,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000,
+    port: 4200,
     // enable HMR
     hot: true,
   },

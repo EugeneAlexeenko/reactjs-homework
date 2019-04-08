@@ -1,21 +1,29 @@
-// comments, should be hidden in prod build
 .app {
-  outline: 1px dashed black;
   margin: 0 auto;
   width: 800px;
-  text-align: center;
 
-  &__logo {
-    width: 200px;
-    height: auto;
+  &__header {
+    padding-top: 20px;
+    height: 200px;
+    font-size: 12px;
+    background-color: #262b33;
   }
 
-  &__title {
-    font-size: 30px;
-    color: royalblue;
+  &__header-title {
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    color: #e05f74;
+  }
+
+  &__main {
+    //outline: 1px dashed green;
+  }
+
+  &__footer {
+    height: 50px;
+    background-color: #262b33;
+    color: #e05f74;
   }
 }
 
-.test-autoprefixer {
-  display: flex;
-}
