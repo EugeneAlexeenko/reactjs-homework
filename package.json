@@ -8,7 +8,9 @@
     "fe-build": "webpack --config webpack.build.config.js",
     "be-dev": "nodemon --exec babel-node --inspect --require ./node_modules/dotenv/config server.js ",
     "lint": "eslint src/**/*.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "browserslist": [
     "> 1%",

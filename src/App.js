@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {
+  sortByReleaseDate,
+  sortByRating,
+} from './utils';
 import Search from './Search/Search';
 import PreviewSettings from './PreviewSettings/PreviewSettings';
 import PreviewList from './PreviewList/PreviewList';
@@ -32,14 +36,6 @@ const App = () => {
   const handleSortByRating = () => {
     setSortBy('rating');
     setMovies(sortByRating(movies));
-  };
-
-  const sortByReleaseDate = movies => {
-    return movies.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
-  };
-
-  const sortByRating = movies => {
-    return movies.sort((a, b) => a.vote_average - b.vote_average);
   };
 
   return (
