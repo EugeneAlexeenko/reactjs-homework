@@ -1,9 +1,17 @@
 import {
+  getFullYear,
   sortByReleaseDate,
   sortByRating
 } from './utils';
 
 describe('Utils module', () => {
+  describe('Date utils', () => {
+
+    it('Should return full year from a given date string', () => {
+      expect(getFullYear('1991-07-03')).toEqual(1991);
+      expect(getFullYear('1991-07-03T21:18:20.783Z')).toEqual(1991);
+    });
+  });
 
   describe('Sorting utils', () => {
     const movies = [

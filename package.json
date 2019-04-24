@@ -9,8 +9,9 @@
     "be-dev": "nodemon --exec babel-node --inspect --require ./node_modules/dotenv/config server.js ",
     "lint": "eslint src/**/*.js",
     "test": "jest",
+    "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html"
   },
   "browserslist": [
     "> 1%",
@@ -41,6 +42,8 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "dotenv": "7.0.0",
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "1.12.1",
     "eslint": "^5.15.1",
     "eslint-config-google": "^0.12.0",
     "eslint-loader": "2.1.2",

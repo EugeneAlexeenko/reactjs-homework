@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getFullYear } from '../utils';
 import './PreviewItem.scss';
-
-// Todo: add tests
-const getYearFromDate = dateString => {
-  const date = new Date(dateString);
-
-  return date.getFullYear();
-};
 
 const PreviewItem = props => {
   const {
@@ -24,7 +18,7 @@ const PreviewItem = props => {
       </div>
       <div className="item-preview__title-container">
         <div className="item-preview__title">{title}</div>
-        <div className="item-preview__release-date">{getYearFromDate(release_date)}</div>
+        <div className="item-preview__release-date">{getFullYear(release_date)}</div>
       </div>
       <div className="item-preview__genres-container">
         {genres.map(genre => (
