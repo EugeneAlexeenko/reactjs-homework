@@ -11,7 +11,8 @@
     "test": "jest",
     "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html"
+    "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
+    "cypress": "cypress open"
   },
   "browserslist": [
     "> 1%",
