@@ -4,7 +4,6 @@ import Button from '../Button/Button';
 import './PreviewSettings.scss';
 
 const PreviewSettings = (props) => {
-
   const handleSortByReleaseDate = () => {
     props.handleSortByReleaseDate();
   };
@@ -25,7 +24,7 @@ const PreviewSettings = (props) => {
             <Button
               className="settings__sort-by-button"
               activeClassName="settings__sort-by-button--active"
-              isActive={props.sortBy === "release date"}
+              isActive={props.sortBy === "RELEASE_DATE"}
               text="release date"
               clickHandler={handleSortByReleaseDate}
             >
@@ -33,7 +32,7 @@ const PreviewSettings = (props) => {
             <Button
               className="settings__sort-by-button"
               activeClassName="settings__sort-by-button--active"
-              isActive={props.sortBy === "rating"}
+              isActive={props.sortBy === "RATING"}
               text="rating"
               clickHandler={handleSortByRating}
             >
