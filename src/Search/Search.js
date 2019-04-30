@@ -27,7 +27,10 @@ const Search = (props) => {
   };
 
   const handleSubmit = () => {
-    props.handleSubmit(searchString, searchBy);
+    props.handleSubmit(
+      searchString,
+      searchBy
+    );
   };
 
   return (

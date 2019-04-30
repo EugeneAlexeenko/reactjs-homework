@@ -1,41 +1,36 @@
-import React, {useState} from 'react';
-import axios from 'axios';
-import {
-  sortByReleaseDate,
-  sortByRating,
-} from './utils';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchMovies, moviesChangeSorting } from './actions';
+import { selectSortedMovies } from './reducers/moviesReducer';
 import Search from './Search/Search';
 import PreviewSettings from './PreviewSettings/PreviewSettings';
 import PreviewList from './PreviewList/PreviewList';
 import './App.scss';
 import ErrorBoundary from "./ErrorBoundary";
 
-const App = () => {
-  const [sortBy, setSortBy] = useState('release date');
-  const [movies, setMovies] = useState([]);
-  // TODO: move url to env
-  const baseUrl ='http://react-cdp-api.herokuapp.com/movies';
-
-  const fetchMovies = (searchString, searchBy) => {
-    return axios.get(`${baseUrl}?search=${searchString}&searchBy=${searchBy}`);
-  };
+const App = props => {
+  const {
+    movies,
+    sortBy,
+    fetchMovies,
+    moviesChangeSorting,
+  } = props;
 
   const handleSearch = (searchString, searchBy) => {
-    fetchMovies(searchString, searchBy)
-      .then(result => {
-          const movies = result.data.data;
-          setMovies(sortByReleaseDate(movies));
-        });
+    const params = {
+      search: searchString,
+      searchBy,
+    };
+    fetchMovies(params);
   };
 
   const handleSortByReleaseDate = () => {
-    setSortBy('release date');
-    setMovies(sortByReleaseDate(movies));
+    moviesChangeSorting('RELEASE_DATE');
   };
 
   const handleSortByRating = () => {
-    setSortBy('rating');
-    setMovies(sortByRating(movies));
+    moviesChangeSorting('RATING');
   };
 
   return (
@@ -72,4 +67,25 @@ const App = () => {
   );
 };
 
-export default App;
+function mapStateToProps(store) {
+  return {
+    sortBy: store.movies.sortBy,
+    movies: selectSortedMovies(store.movies.data, store.movies.sortBy),
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchMovies: query => dispatch(fetchMovies(query)),
+    moviesChangeSorting: sortBy => dispatch(moviesChangeSorting(sortBy)),
+  }
+}
+
+App.propTypes = {
+  movies: PropTypes.array,
+  sortBy: PropTypes.bool,
+  fetchMovies: PropTypes.func,
+  moviesChangeSorting: PropTypes.func,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
