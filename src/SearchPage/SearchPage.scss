@@ -1,0 +1,29 @@
+.app {
+  margin: 0 auto;
+  width: 800px;
+
+  &__header {
+    padding-top: 20px;
+    height: 200px;
+    font-size: 12px;
+    background-color: #262b33;
+  }
+
+  &__header-title {
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    color: #e05f74;
+  }
+
+  &__main {
+    outline: 1px dashed green;
+  }
+
+  &__footer {
+    height: 50px;
+    background-color: #262b33;
+    color: #e05f74;
+  }
+}
+

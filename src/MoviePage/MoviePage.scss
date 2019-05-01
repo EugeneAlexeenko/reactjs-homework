@@ -1,10 +1,9 @@
-.app {
+.movie-page {
   margin: 0 auto;
   width: 800px;
 
   &__header {
     padding-top: 20px;
-    height: 200px;
     font-size: 12px;
     background-color: #262b33;
   }
@@ -17,7 +16,7 @@
   }
 
   &__main {
-    //outline: 1px dashed green;
+    outline: 1px dashed green;
   }
 
   &__footer {

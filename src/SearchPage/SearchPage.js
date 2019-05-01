@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchMovies, moviesChangeSorting } from './actions';
-import { selectSortedMovies } from './reducers/moviesReducer';
-import Search from './Search/Search';
-import PreviewSettings from './PreviewSettings/PreviewSettings';
-import PreviewList from './PreviewList/PreviewList';
-import './App.scss';
-import ErrorBoundary from "./ErrorBoundary";
+import { fetchMovies, moviesChangeSorting } from '../actions';
+import { selectSortedMovies } from '../reducers/moviesReducer';
+import Search from '../Search/Search';
+import PreviewSettings from '../PreviewSettings/PreviewSettings';
+import PreviewList from '../PreviewList/PreviewList';
+import ErrorBoundary from '../ErrorBoundary';
+import './SearchPage.scss';
 
-const App = props => {
+const SearchPage = props => {
   const {
     movies,
     sortBy,
@@ -81,11 +81,11 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-App.propTypes = {
+SearchPage.propTypes = {
   movies: PropTypes.array,
-  sortBy: PropTypes.bool,
+  sortBy: PropTypes.string,
   fetchMovies: PropTypes.func,
   moviesChangeSorting: PropTypes.func,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
