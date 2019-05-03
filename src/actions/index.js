@@ -36,10 +36,10 @@ export function fetchMovies(params) {
       }
     })
       .then(response => {
-        dispatch(moviesRequestSuccess(response.data.data))
+        dispatch(moviesRequestSuccess(response.data.data));
       })
       .catch(error => {
-        dispatch(moviesRequestError(error))
+        dispatch(moviesRequestError(error));
       });
   }
 }

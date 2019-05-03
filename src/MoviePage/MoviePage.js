@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { movieType } from '../types';
 import MovieDetails from '../MovieDetails/MovieDetails';
@@ -9,9 +9,16 @@ import './MoviePage.scss';
 
 const MoviePage = props => {
   const { movies, history } = props;
+  // useEffect is equivalent to componentDidMount
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  });
   const selectedMovieId = Number(props.match.params.id);
   const selectedMovie = movies.find(movie => (movie.id === selectedMovieId));
-
   const goToSearchPage = () => {
     return history.push('/');
   };

@@ -15,7 +15,10 @@ const PreviewItem = props => {
 
   return (
     <div className="item-preview">
-      <Link to={`/movies/${id}`}>
+      <Link
+        to={`/movies/${id}`}
+        className="item-preview__link"
+      >
         <div className="item-preview__image-container">
           <img className='item-preview__image' src={poster_path} alt={title}/>
         </div>
