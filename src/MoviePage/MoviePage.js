@@ -3,18 +3,32 @@ import PropTypes from 'prop-types';
 import { movieType } from '../types';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import PreviewList from '../PreviewList/PreviewList';
+import Button from '../Button/Button';
 import { connect } from 'react-redux';
 import './MoviePage.scss';
 
 const MoviePage = props => {
-  const { movies } = props;
+  const { movies, history } = props;
   const selectedMovieId = Number(props.match.params.id);
   const selectedMovie = movies.find(movie => (movie.id === selectedMovieId));
+
+  const goToSearchPage = () => {
+    return history.push('/');
+  };
 
   return (
     <div className="movie-page">
         <header className="movie-page__header">
-          <h1 className="movie-page__header-title">netflixroulette</h1>
+          <div className="movie-page__top-line">
+            <h1 className="movie-page__header-title">netflixroulette</h1>
+            <div className="movie-page__search-button-wrapper">
+              <Button
+                className="search-button search-button--white"
+                text="search"
+                clickHandler={goToSearchPage}
+              />
+            </div>
+          </div>
           <MovieDetails movie={selectedMovie} />
         </header>
 
@@ -37,7 +51,8 @@ function mapStateToProps(store) {
 
 MoviePage.propTypes = {
   movies: PropTypes.arrayOf(movieType),
-  match: PropTypes.object
+  history: PropTypes.object,
+  match: PropTypes.object,
 };
 
 export default connect(mapStateToProps)(MoviePage);
