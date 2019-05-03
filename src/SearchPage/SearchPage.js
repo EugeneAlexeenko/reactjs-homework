@@ -15,6 +15,7 @@ const SearchPage = props => {
     sortBy,
     fetchMovies,
     moviesChangeSorting,
+    history,
   } = props;
 
   const handleSearch = (searchString, searchBy) => {
@@ -23,6 +24,7 @@ const SearchPage = props => {
       searchBy,
     };
     fetchMovies(params);
+    history.push(`/search/${searchString}`);
   };
 
   const handleSortByReleaseDate = () => {
@@ -86,6 +88,7 @@ SearchPage.propTypes = {
   sortBy: PropTypes.string,
   fetchMovies: PropTypes.func,
   moviesChangeSorting: PropTypes.func,
+  history: PropTypes.object,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

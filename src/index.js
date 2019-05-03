@@ -12,6 +12,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={SearchPage}/>
+        <Route path="/search" component={SearchPage}/>
         <Route path="/movies/:id" component={MoviePage}/>
         <Route component={NotFoundPage}/>
       </Switch>
