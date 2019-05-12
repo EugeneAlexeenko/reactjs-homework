@@ -2,10 +2,9 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
-
-// import App from './src/App';
-const App = () => <div>rendered to string</div>
+import App from './src/App';
 
 const port = process.env.PORT_NODE_SERVER;
 const app = express();
@@ -16,8 +15,19 @@ app.use(express.static(path.resolve(__dirname, "../dist" )));
 
 // Server-side rendering
 app.get('/*', (req, res) => {
+
+  const context = {};
+
+  const appJsx = (
+    <App
+      Router={StaticRouter}
+      location={req.url}
+      context={context}
+    />
+  );
+
   // render app to static HTML string
-  const appHtml = renderToString(<App />);
+  const appHtml = renderToString(appJsx);
 
   fs.readFile(path.resolve('./dist/index.html'), 'utf8', (err, data) => {
     if (err) {
