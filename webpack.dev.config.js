@@ -13,6 +13,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: 4200,
     // enable HMR
     hot: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [

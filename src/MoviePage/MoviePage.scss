@@ -1,23 +1,29 @@
-.app {
+.movie-page {
   margin: 0 auto;
   width: 800px;
 
   &__header {
     padding-top: 20px;
-    height: 200px;
     font-size: 12px;
     background-color: #262b33;
   }
 
+  &__top-line {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &__header-title {
-    width: 700px;
-    margin: 0 auto;
-    margin-bottom: 30px;
     color: #e05f74;
   }
 
+  &__search-button-wrapper {
+    align-self: center;
+  }
+
   &__main {
-    //outline: 1px dashed green;
   }
 
   &__footer {
@@ -26,4 +32,3 @@
     color: #e05f74;
   }
 }
-

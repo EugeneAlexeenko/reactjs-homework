@@ -3,6 +3,10 @@
   margin-bottom: 20px;
   color: #767676;
 
+  &__link {
+    text-decoration: none;
+  }
+
   &__image-container {
     overflow: hidden;
     margin-bottom: 10px;
