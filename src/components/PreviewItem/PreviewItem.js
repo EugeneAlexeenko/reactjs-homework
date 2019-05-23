@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { getFullYear } from '../utils';
+import { getFullYear } from '../../utils';
 import './PreviewItem.scss';
 
 const PreviewItem = props => {

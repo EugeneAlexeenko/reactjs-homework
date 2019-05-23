@@ -1,14 +1,16 @@
+// import 'isomorphic-fetch';
+import 'babel-polyfill';
 import React from 'react';
+import { hot } from 'react-hot-loader';
 import PropTypes from 'prop-types';
 import { Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
-import store from './store/configureStore';
 
-import SearchPage from './SearchPage/SearchPage';
-import MoviePage from './MoviePage/MoviePage';
-import NotFoundPage from "./NotFoundPage/NotFoundPage";
+import SearchPage from './pages/SearchPage/SearchPage';
+import MoviePage from './pages/MoviePage/MoviePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-const App = ({Router, location, context}) => (
+const Root = ({Router, location, context, store}) => (
   <Provider store={store}>
     <Router location={location} context={context}>
       <Switch>
@@ -21,12 +23,16 @@ const App = ({Router, location, context}) => (
   </Provider>
 );
 
-App.propTypes = {
+Root.propTypes = {
   Router: PropTypes.func.isRequired,
   location: PropTypes.string,
   context: PropTypes.shape({
     url: PropTypes.string,
   }),
+  store: PropTypes.shape({
+    dispatch: PropTypes.func.isRequired,
+    getState: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-export default App;
+export default hot(module)(Root);

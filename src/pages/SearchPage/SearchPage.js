@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchMovies, moviesChangeSorting } from '../actions';
-import { selectSortedMovies } from '../reducers/moviesReducer';
-import Search from '../Search/Search';
-import PreviewSettings from '../PreviewSettings/PreviewSettings';
-import PreviewList from '../PreviewList/PreviewList';
-import ErrorBoundary from '../ErrorBoundary';
+
+import ErrorBoundary from '../../components/ErrorBoundary';
+import Search from '../../components/Search/Search';
+import PreviewSettings from '../../components/PreviewSettings/PreviewSettings';
+import PreviewList from '../../components/PreviewList/PreviewList';
+
+import { fetchMovies, moviesChangeSorting } from '../../actions';
+import { selectSortedMovies } from '../../reducers/moviesReducer';
+
 import './SearchPage.scss';
 
 const SearchPage = props => {

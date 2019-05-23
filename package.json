@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "start": "cross-env NODE_ENV=development  node ./server",
     "fe-dev": "webpack-dev-server --open --config webpack.dev.config.js",
     "fe-build": "webpack --config webpack.build.config.js",
     "be-dev": "nodemon --exec babel-node --inspect --require ./node_modules/dotenv/config server.js ",
@@ -21,10 +22,15 @@
   "author": "Eugene Alexeenko",
   "license": "ISC",
   "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^5.2.0",
     "express": "^4.16.4",
+    "ignore-styles": "^5.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-hot-loader": "^4.8.7",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
@@ -40,7 +46,7 @@
     "babel-loader": "8.0.5",
     "clean-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^5.0.1",
-    "css-loader": "2.1.1",
+    "css-loader": "^0.28.11",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "dotenv": "7.0.0",
@@ -69,7 +75,11 @@
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "3.2.3",
+    "webpack-dev-middleware": "^3.7.0",
     "webpack-dev-server": "3.2.1",
-    "webpack-merge": "^4.2.1"
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-hot-server-middleware": "^0.6.0",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }

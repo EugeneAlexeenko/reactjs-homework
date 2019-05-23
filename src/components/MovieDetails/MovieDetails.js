@@ -1,6 +1,7 @@
 import React from 'react';
-import { movieType } from '../types';
-import { getFullYear } from '../utils';
+import { movieType } from '../../types';
+import { getFullYear } from '../../utils';
+
 import './MovieDetails.scss';
 
 const MovieDetails = props => {
