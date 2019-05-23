@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PreviewItem from '../PreviewItem/PreviewItem';
+
 import './PreviewList.scss';
 
 const PreviewList = ({movies = []}) => {

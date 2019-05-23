@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { movieType } from '../types';
-import MovieDetails from '../MovieDetails/MovieDetails';
-import PreviewList from '../PreviewList/PreviewList';
-import Button from '../Button/Button';
+import { movieType } from '../../types';
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
+import PreviewList from '../../components/PreviewList/PreviewList';
+import Button from '../../components/Button/Button';
 import { connect } from 'react-redux';
 import './MoviePage.scss';
 
