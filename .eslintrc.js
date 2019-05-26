@@ -1,10 +1,12 @@
 module.exports = {
   'plugins': [
     'react',
+    'cypress'
   ],
   'extends': [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:cypress/recommended'
   ],
   // We don't need parserOptions if using babel-eslint parser
   // but we need babel as dependency and .babelrc should be specified
@@ -20,5 +22,6 @@ module.exports = {
     'browser': true,
     'node': true,
     'jest': true,
+    'cypress/globals': true
   }
 };

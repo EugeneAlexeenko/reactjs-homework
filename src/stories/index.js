@@ -19,6 +19,7 @@ storiesOf('Button', module)
 storiesOf('PreviewItem', module)
   .add('PreviewItem', () => (
     <PreviewItem
+
     >
     </PreviewItem>
   ));
